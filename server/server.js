@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const dbConnection = require("./middlewares/dbConnections");
 
 const app = express();
 
@@ -24,3 +25,7 @@ app.use("/user", user);
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+async () => {
+  await dbConnection();
+};
